@@ -1,0 +1,14 @@
+<ul class="nav nav-pills nav-justified">
+   <li {% if active_tab == "rule" %} class="active"{% endif %}><a href="/rules/">规则</a></li>
+   <li {% if active_tab == "challenge" %} class="active"{% endif %}><a href="/challenges/">挑战</a></li>
+   <li {% if active_tab == "scoreboard" %} class="active"{% endif %}><a href="/scoreboard/">比分</a></li>
+   {% if user.is_authenticated %}
+       <li >   <A HREF="/logout/"><b>{{ user.username }}</b>登出</A></li>
+   {% else %}
+       <li {% if active_tab == "login" %} class="active"{% endif %}><A HREF="/login/">登陆</A></li>
+       <li {% if active_tab == "register" %} class="active"{% endif %}><A HREF="/register/">注册</A></li>
+   {% endif %}
+</ul>
+<br>
+<br>
+<br>

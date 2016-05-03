@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{%load extratags %}
+{% block menu %}{% include "menu.html" with active_tab='register' %}{% endblock %}
+{% block content %}
+
+{% if errorrecall %}
+<div class="alert alert-danger">有错误，请检查 : {{ fieldstring}}</div>
+{% endif %}
+<div class="span"></div>
+    <form class="form-horizontal"  action="../registerprocess/" method="POST">{% csrf_token %}
+
+            {% if usingregcodes %}
+                <div class="form-group" >
+                  <label class="col-sm-4 control-label" for="inputSuccess">*注册码:</label>
+                  <div class="col-sm-5 " ><input type="text" class="form-control" id="inputSuccess" name="regcode"></div>
+               </div>
+            {% endif %}
+
+   <div class="form-group" >
+      <label class="col-sm-4 control-label" for="inputSuccess">*用户名:</label>
+      <div class="col-sm-5 " ><input type="text" class="form-control" id="inputSuccess" name="username"></div>
+   </div>
+     <div class="form-group" >
+      <label class="col-sm-4 control-label" for="inputSuccess">*昵称:</label>
+      <div class="col-sm-5 " ><input type="text" class="form-control" id="inputSuccess" name="displayname"></div>
+   </div>
+     <div class="form-group" >
+      <label class="col-sm-4 control-label" for="inputSuccess">*密码:</label>
+      <div class="col-sm-5 " ><input type="text" class="form-control" id="inputSuccess" name="password"></div>
+   </div>
+     <div class="form-group" >
+      <label class="col-sm-4 control-label" for="inputSuccess">*确认密码:</label>
+      <div class="col-sm-5 " ><input type="text" class="form-control" id="inputSuccess" name="passwordconfirm"></div>
+   </div>
+     <div class="form-group" >
+      <label class="col-sm-4 control-label" for="inputSuccess">*邮箱:</label>
+      <div class="col-sm-5 " ><input type="text" class="form-control" id="inputSuccess" name="email"></div>
+   </div>
+     <div class="form-group" >
+      <label class="col-sm-4 control-label" for="inputSuccess">部门:</label>
+      <div class="col-sm-5 " ><input type="text" class="form-control" id="inputSuccess" name="affiliation"></div>
+   </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-9">
+         <button type="submit" class="btn btn-default">注册</button>*  必填
+      </div>
+    </div>
+
+	</form>
+{% endblock %}

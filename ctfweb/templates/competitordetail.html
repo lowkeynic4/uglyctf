@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{{ competitor.display_name }} - {{ competitor.affiliation }}<BR><BR>目前得分: {{ competitor.points }} <BR><BR>
+{% if numsolved %}
+
+    <div class="table-responsive">
+       <table class="table table-striped table-bordered">
+           <thead>
+               <tr>
+                 <th>题目</th>
+                 <th>提交时间</th>
+                 <th>分数</th>
+               </tr>
+           </thead>
+           <tbody>
+           		{% for s in solved_list %}
+               <tr>
+                 <td><A HREF="/challenge/{{ s.challenge.id}}/">{{ s.challenge }}</A></td>
+                 <td>{{ s.time }} </td>
+                 <td>{{ s.points }}</td>
+               </tr>
+           	{% endfor %}
+           </tbody>
+       </table>
+    </div>
+
+{% else %}
+没有解题记录
+{% endif %}
+{% endblock %}

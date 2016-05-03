@@ -1,0 +1,35 @@
+<HTML>
+    <HEAD>
+        {% block headblock %}{% endblock %}
+        <title>TopSec CTF Training system 2016</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" />
+    </HEAD>
+
+    <BODY >
+        <div class="container">
+            <div class="jumbotron">
+                <h1>欢迎使用</h1>
+                <h2>天融信ctf练习系统</h2>
+            </div>
+
+            <div class="container">
+                <CENTER>
+                {% block menu %}{% endblock %}
+                {% block content %}{% endblock %}
+                </CENTER>
+            </div>
+
+            <div  class="container">
+                <nav class="navbar navbar-default navbar-fixed-bottom">
+                    <div class="navbar-inner navbar-content-center">
+                        <p class="text-muted credit" style="padding: 10px;">
+                            版权所有 @TopSec
+                        </p>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+    </BODY>
+</HTML>

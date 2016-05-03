@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block headblock %}
+<meta http-equiv="refresh" content="60">
+{% endblock %}
+{% block menu %}{% include "menu.html" with active_tab='scoreboard' %}{% endblock %}
+{% block content %}
+    <div class="alert alert-danger"><b>{{ status }}</b></div>
+    <div class="alert alert-info"><b>目前比分</b></div>
+
+
+{% if score_list %}
+    <div class="table-responsive ">
+       <table class="table table-striped table-bordered text-center">
+           <thead>
+               <tr>
+                 <th class="text-center">用户</th>
+                 <th  class="text-center">部门</th>
+                 <th  class="text-center">比分</th>
+               </tr>
+           </thead>
+           <tbody>
+           	{% for comp in score_list %}
+               <tr>
+                 <td><A HREF="/competitor/{{ comp.id }}/">{{ comp.display_name }}</A></td>
+                 <td>{{ comp.affiliation }}</td>
+                 <td>{{ comp.points }}</td>
+               </tr>
+           	{% endfor %}
+           </tbody>
+       </table>
+    </div>
+
+
+
+{% else %}
+没有参赛者...
+{% endif %}
+{% endblock %}

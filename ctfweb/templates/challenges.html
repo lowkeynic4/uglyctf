@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load extratags %}
+{% block menu %}{% include "menu.html" with active_tab='challenge' %}{% endblock %}
+{% block content %}
+    {% if category_list %}
+        <div class="table-responsive">
+           <table class="table table-striped table-bordered">
+               <tbody>
+                {% for cat in category_list %}
+                   <tr>
+                     <td><B><center>{{ cat.name }}</center></B></td>
+                       {% for chall in cat.challenge_set.all %}
+                         <TD bgcolor="#{% if auth_player|filthassolved:chall %}fffe9a{% else %}{%if chall.active %}000022{% else %}222222{% endif %}{% endif %}">
+                        <CENTER>  <A href="../../challenge/{{chall.id}}/">{{ chall.points }}</a></CENTER>
+                    </TD>
+                     {% endfor %}
+                   </tr>
+                {% endfor %}
+               </tbody>
+           </table>
+        </div>
+    {% else %}
+    没有挑战...
+    {% endif %}
+{% endblock %}
