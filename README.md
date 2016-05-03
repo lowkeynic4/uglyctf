@@ -1,7 +1,9 @@
 ### 简介：
 从![ctfmanager](https://github.com/pdogg/ctfmanager)基础上修改而来。
 支持用户注册，支持多个比赛，支持赛时设置，支持查看所有人比分，使用sqlite数据库因为移动时方便。
-有注册码功能，但是需要手动添加注册码
+有注册码功能，但是需要手动添加注册码.
+使用bootstrap.
+
 使用方法
 
 1. 下载django1.8.4 下载bootstrap-admin
