@@ -183,7 +183,8 @@ def registerprocess(request):
 			code.used = 1
 			code.save()
 		comp.save()
-		return genericerror (request, "用户已经建立 - 请登录")
+#		return genericerror (request, "用户已经建立 - 请登录")
+		return HttpResponseRedirect("/login/")
 
 def logout_view(request):
 	logout(request)	
